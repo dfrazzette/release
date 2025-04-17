@@ -127,7 +127,7 @@ releases:
     candidate:
       product: ocp
       stream: nightly
-      version: "4.18"
+      version: "4.19"
 resources:
   '*':
     limits:
@@ -1000,4 +1000,4 @@ zz_generated_metadata:
   branch: main
   org: openshift-knative
   repo: serverless-operator
-  variant: "418"
+  variant: "419"

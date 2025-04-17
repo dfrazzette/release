@@ -127,7 +127,7 @@ releases:
     candidate:
       product: ocp
       stream: nightly
-      version: "4.18"
+      version: "4.19"
 resources:
   '*':
     limits:
@@ -136,7 +136,7 @@ resources:
       cpu: 100m
       memory: 200Mi
 tests:
-- as: operator-e2e-interop-aws-ocp418
+- as: operator-e2e-interop-aws-ocp419
   cron: 0 23 31 2 *
   steps:
     cluster_profile: aws-cspi-qe
@@ -146,15 +146,15 @@ tests:
         {
           "failure_rules":
             [
-              {"step": "knative-eventing-kafka-broker-e2e", "failure_type": "test_failure", "classification": "knative-eventing-kafka-broker-e2e Test Failure", "jira_project": "SRVCOM", "jira_additional_labels": ["!default","interop-tests"]},
-              {"step": "knative-serving-eventing-e2e", "failure_type": "test_failure", "classification": "knative-serving-eventing-e2e Test Failure", "jira_project": "SRVCOM", "jira_additional_labels": ["!default","interop-tests"]},
-              {"step": "operator-e2e", "failure_type": "test_failure", "classification": "operator-e2e Test Failure", "jira_project": "SRVCOM", "jira_additional_labels": ["!default","interop-tests"]},
+              {"step": "knative-eventing-kafka-broker-e2e", "failure_type": "test_failure", "classification": "knative-eventing-kafka-broker-e2e Test Failure", "jira_project": "SRVCOM", "jira_assignee": "!default", "jira_additional_labels": ["!default","interop-tests"]},
+              {"step": "knative-serving-eventing-e2e", "failure_type": "test_failure", "classification": "knative-serving-eventing-e2e Test Failure", "jira_project": "SRVCOM",  "jira_assignee": "!default", "jira_additional_labels": ["!default","interop-tests"]},
+              {"step": "operator-e2e", "failure_type": "test_failure", "classification": "operator-e2e Test Failure", "jira_project": "SRVCOM",  "jira_assignee": "!default", "jira_additional_labels": ["!default","interop-tests"]},
               {"step": "knative-*", "failure_type": "pod_failure", "classification": "knative Test Execution", "jira_additional_labels": ["!default","interop-tests"]},
               {"step": "operator-e2e", "failure_type": "pod_failure", "classification": "operator-e2e Test Execution", "jira_additional_labels": ["!default","interop-tests"]}
             ]
         }
       FIREWATCH_CONFIG_FILE_PATH: https://raw.githubusercontent.com/CSPI-QE/cspi-utils/main/firewatch-base-configs/aws-ipi/lp-interop.json
-      FIREWATCH_DEFAULT_JIRA_ADDITIONAL_LABELS: '["4.18-lp","self-managed-lp","serverless-lp"]'
+      FIREWATCH_DEFAULT_JIRA_ADDITIONAL_LABELS: '["4.19-lp","self-managed-lp","serverless-lp"]'
       FIREWATCH_DEFAULT_JIRA_ASSIGNEE: maschmid@redhat.com
       FIREWATCH_DEFAULT_JIRA_PROJECT: LPINTEROP
       USER_TAGS: |
@@ -243,7 +243,7 @@ tests:
           memory: 200Mi
     workflow: firewatch-ipi-aws
   timeout: 8h0m0s
-- as: operator-e2e-interop-aws-ocp418-fips
+- as: operator-e2e-interop-aws-ocp419-fips
   cron: 0 23 31 2 *
   steps:
     cluster_profile: aws-cspi-qe
@@ -254,15 +254,15 @@ tests:
         {
           "failure_rules":
             [
-              {"step": "knative-eventing-kafka-broker-e2e", "failure_type": "test_failure", "classification": "knative-eventing-kafka-broker-e2e Test Failure", "jira_project": "SRVCOM", "jira_additional_labels": ["!default","interop-tests"]},
-              {"step": "knative-serving-eventing-e2e", "failure_type": "test_failure", "classification": "knative-serving-eventing-e2e Test Failure", "jira_project": "SRVCOM", "jira_additional_labels": ["!default","interop-tests"]},
-              {"step": "operator-e2e", "failure_type": "test_failure", "classification": "operator-e2e Test Failure", "jira_project": "SRVCOM", "jira_additional_labels": ["!default","interop-tests"]},
+              {"step": "knative-eventing-kafka-broker-e2e", "failure_type": "test_failure", "classification": "knative-eventing-kafka-broker-e2e Test Failure", "jira_project": "SRVCOM", "jira_assignee": "!default", "jira_additional_labels": ["!default","interop-tests"]},
+              {"step": "knative-serving-eventing-e2e", "failure_type": "test_failure", "classification": "knative-serving-eventing-e2e Test Failure", "jira_project": "SRVCOM", "jira_assignee": "!default", "jira_additional_labels": ["!default","interop-tests"]},
+              {"step": "operator-e2e", "failure_type": "test_failure", "classification": "operator-e2e Test Failure", "jira_project": "SRVCOM", "jira_assignee": "!default", "jira_additional_labels": ["!default","interop-tests"]},
               {"step": "knative-*", "failure_type": "pod_failure", "classification": "knative Test Execution", "jira_additional_labels": ["!default","interop-tests"]},
               {"step": "operator-e2e", "failure_type": "pod_failure", "classification": "operator-e2e Test Execution", "jira_additional_labels": ["!default","interop-tests"]}
             ]
         }
       FIREWATCH_CONFIG_FILE_PATH: https://raw.githubusercontent.com/CSPI-QE/cspi-utils/main/firewatch-base-configs/aws-ipi/lp-interop.json
-      FIREWATCH_DEFAULT_JIRA_ADDITIONAL_LABELS: '["4.18-lp","self-managed-lp","serverless-lp","fips"]'
+      FIREWATCH_DEFAULT_JIRA_ADDITIONAL_LABELS: '["4.19-lp","self-managed-lp","serverless-lp","fips"]'
       FIREWATCH_DEFAULT_JIRA_ASSIGNEE: maschmid@redhat.com
       FIREWATCH_DEFAULT_JIRA_PROJECT: LPINTEROP
       USER_TAGS: |
@@ -355,4 +355,4 @@ zz_generated_metadata:
   branch: main
   org: openshift-knative
   repo: serverless-operator
-  variant: ocp4.18-lp-interop
+  variant: ocp4.19-lp-interop

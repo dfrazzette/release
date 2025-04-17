@@ -2043,17 +2043,17 @@ presubmits:
     - ^main$
     - ^main-
     cluster: build01
-    context: ci/prow/418-images
+    context: ci/prow/419-images
     decorate: true
     decoration_config:
       skip_cloning: true
     labels:
-      ci-operator.openshift.io/variant: "418"
+      ci-operator.openshift.io/variant: "419"
       ci.openshift.io/generator: prowgen
-      job-release: "4.18"
+      job-release: "4.19"
       pj-rehearse.openshift.io/can-be-rehearsed: "true"
-    name: pull-ci-openshift-knative-serverless-operator-main-418-images
-    rerun_command: /test 418-images
+    name: pull-ci-openshift-knative-serverless-operator-main-419-images
+    rerun_command: /test 419-images
     spec:
       containers:
       - args:
@@ -2061,7 +2061,7 @@ presubmits:
         - --image-import-pull-secret=/etc/pull-secret/.dockerconfigjson
         - --report-credentials-file=/etc/report/credentials
         - --target=[images]
-        - --variant=418
+        - --variant=419
         command:
         - ci-operator
         image: ci-operator:latest
@@ -2094,14 +2094,14 @@ presubmits:
       - name: result-aggregator
         secret:
           secretName: result-aggregator
-    trigger: (?m)^/test( | .* )418-images,?($|\s.*)
+    trigger: (?m)^/test( | .* )419-images,?($|\s.*)
   - agent: kubernetes
     always_run: false
     branches:
     - ^main$
     - ^main-
     cluster: build05
-    context: ci/prow/418-kitchensink-e2e
+    context: ci/prow/419-kitchensink-e2e
     decorate: true
     decoration_config:
       skip_cloning: true
@@ -2109,13 +2109,13 @@ presubmits:
     labels:
       ci-operator.openshift.io/cloud: aws
       ci-operator.openshift.io/cloud-cluster-profile: aws-serverless
-      ci-operator.openshift.io/variant: "418"
+      ci-operator.openshift.io/variant: "419"
       ci.openshift.io/generator: prowgen
-      job-release: "4.18"
+      job-release: "4.19"
       pj-rehearse.openshift.io/can-be-rehearsed: "true"
-    name: pull-ci-openshift-knative-serverless-operator-main-418-kitchensink-e2e
+    name: pull-ci-openshift-knative-serverless-operator-main-419-kitchensink-e2e
     optional: true
-    rerun_command: /test 418-kitchensink-e2e
+    rerun_command: /test 419-kitchensink-e2e
     spec:
       containers:
       - args:
@@ -2125,7 +2125,7 @@ presubmits:
         - --report-credentials-file=/etc/report/credentials
         - --secret-dir=/secrets/ci-pull-credentials
         - --target=kitchensink-e2e
-        - --variant=418
+        - --variant=419
         command:
         - ci-operator
         image: ci-operator:latest
@@ -2173,14 +2173,14 @@ presubmits:
       - name: result-aggregator
         secret:
           secretName: result-aggregator
-    trigger: (?m)^/test( | .* )418-kitchensink-e2e,?($|\s.*)
+    trigger: (?m)^/test( | .* )419-kitchensink-e2e,?($|\s.*)
   - agent: kubernetes
     always_run: false
     branches:
     - ^main$
     - ^main-
     cluster: build05
-    context: ci/prow/418-kitchensink-upgrade
+    context: ci/prow/419-kitchensink-upgrade
     decorate: true
     decoration_config:
       skip_cloning: true
@@ -2188,13 +2188,13 @@ presubmits:
     labels:
       ci-operator.openshift.io/cloud: aws
       ci-operator.openshift.io/cloud-cluster-profile: aws-serverless
-      ci-operator.openshift.io/variant: "418"
+      ci-operator.openshift.io/variant: "419"
       ci.openshift.io/generator: prowgen
-      job-release: "4.18"
+      job-release: "4.19"
       pj-rehearse.openshift.io/can-be-rehearsed: "true"
-    name: pull-ci-openshift-knative-serverless-operator-main-418-kitchensink-upgrade
+    name: pull-ci-openshift-knative-serverless-operator-main-419-kitchensink-upgrade
     optional: true
-    rerun_command: /test 418-kitchensink-upgrade
+    rerun_command: /test 419-kitchensink-upgrade
     spec:
       containers:
       - args:
@@ -2204,7 +2204,7 @@ presubmits:
         - --report-credentials-file=/etc/report/credentials
         - --secret-dir=/secrets/ci-pull-credentials
         - --target=kitchensink-upgrade
-        - --variant=418
+        - --variant=419
         command:
         - ci-operator
         image: ci-operator:latest
@@ -2252,14 +2252,14 @@ presubmits:
       - name: result-aggregator
         secret:
           secretName: result-aggregator
-    trigger: (?m)^/test( | .* )418-kitchensink-upgrade,?($|\s.*)
+    trigger: (?m)^/test( | .* )419-kitchensink-upgrade,?($|\s.*)
   - agent: kubernetes
     always_run: false
     branches:
     - ^main$
     - ^main-
     cluster: build05
-    context: ci/prow/418-mesh-e2e
+    context: ci/prow/419-mesh-e2e
     decorate: true
     decoration_config:
       skip_cloning: true
@@ -2267,13 +2267,13 @@ presubmits:
     labels:
       ci-operator.openshift.io/cloud: aws
       ci-operator.openshift.io/cloud-cluster-profile: aws-serverless
-      ci-operator.openshift.io/variant: "418"
+      ci-operator.openshift.io/variant: "419"
       ci.openshift.io/generator: prowgen
-      job-release: "4.18"
+      job-release: "4.19"
       pj-rehearse.openshift.io/can-be-rehearsed: "true"
-    name: pull-ci-openshift-knative-serverless-operator-main-418-mesh-e2e
+    name: pull-ci-openshift-knative-serverless-operator-main-419-mesh-e2e
     optional: true
-    rerun_command: /test 418-mesh-e2e
+    rerun_command: /test 419-mesh-e2e
     spec:
       containers:
       - args:
@@ -2283,7 +2283,7 @@ presubmits:
         - --report-credentials-file=/etc/report/credentials
         - --secret-dir=/secrets/ci-pull-credentials
         - --target=mesh-e2e
-        - --variant=418
+        - --variant=419
         command:
         - ci-operator
         image: ci-operator:latest
@@ -2331,14 +2331,14 @@ presubmits:
       - name: result-aggregator
         secret:
           secretName: result-aggregator
-    trigger: (?m)^/test( | .* )418-mesh-e2e,?($|\s.*)
+    trigger: (?m)^/test( | .* )419-mesh-e2e,?($|\s.*)
   - agent: kubernetes
     always_run: false
     branches:
     - ^main$
     - ^main-
     cluster: build05
-    context: ci/prow/418-mesh-upgrade
+    context: ci/prow/419-mesh-upgrade
     decorate: true
     decoration_config:
       skip_cloning: true
@@ -2346,13 +2346,13 @@ presubmits:
     labels:
       ci-operator.openshift.io/cloud: aws
       ci-operator.openshift.io/cloud-cluster-profile: aws-serverless
-      ci-operator.openshift.io/variant: "418"
+      ci-operator.openshift.io/variant: "419"
       ci.openshift.io/generator: prowgen
-      job-release: "4.18"
+      job-release: "4.19"
       pj-rehearse.openshift.io/can-be-rehearsed: "true"
-    name: pull-ci-openshift-knative-serverless-operator-main-418-mesh-upgrade
+    name: pull-ci-openshift-knative-serverless-operator-main-419-mesh-upgrade
     optional: true
-    rerun_command: /test 418-mesh-upgrade
+    rerun_command: /test 419-mesh-upgrade
     spec:
       containers:
       - args:
@@ -2362,7 +2362,7 @@ presubmits:
         - --report-credentials-file=/etc/report/credentials
         - --secret-dir=/secrets/ci-pull-credentials
         - --target=mesh-upgrade
-        - --variant=418
+        - --variant=419
         command:
         - ci-operator
         image: ci-operator:latest
@@ -2410,14 +2410,14 @@ presubmits:
       - name: result-aggregator
         secret:
           secretName: result-aggregator
-    trigger: (?m)^/test( | .* )418-mesh-upgrade,?($|\s.*)
+    trigger: (?m)^/test( | .* )419-mesh-upgrade,?($|\s.*)
   - agent: kubernetes
     always_run: false
     branches:
     - ^main$
     - ^main-
     cluster: build05
-    context: ci/prow/418-operator-e2e
+    context: ci/prow/419-operator-e2e
     decorate: true
     decoration_config:
       skip_cloning: true
@@ -2425,12 +2425,12 @@ presubmits:
     labels:
       ci-operator.openshift.io/cloud: aws
       ci-operator.openshift.io/cloud-cluster-profile: aws-serverless
-      ci-operator.openshift.io/variant: "418"
+      ci-operator.openshift.io/variant: "419"
       ci.openshift.io/generator: prowgen
-      job-release: "4.18"
+      job-release: "4.19"
       pj-rehearse.openshift.io/can-be-rehearsed: "true"
-    name: pull-ci-openshift-knative-serverless-operator-main-418-operator-e2e
-    rerun_command: /test 418-operator-e2e
+    name: pull-ci-openshift-knative-serverless-operator-main-419-operator-e2e
+    rerun_command: /test 419-operator-e2e
     spec:
       containers:
       - args:
@@ -2440,7 +2440,7 @@ presubmits:
         - --report-credentials-file=/etc/report/credentials
         - --secret-dir=/secrets/ci-pull-credentials
         - --target=operator-e2e
-        - --variant=418
+        - --variant=419
         command:
         - ci-operator
         image: ci-operator:latest
@@ -2488,14 +2488,14 @@ presubmits:
       - name: result-aggregator
         secret:
           secretName: result-aggregator
-    trigger: (?m)^/test( | .* )418-operator-e2e,?($|\s.*)
+    trigger: (?m)^/test( | .* )419-operator-e2e,?($|\s.*)
   - agent: kubernetes
     always_run: false
     branches:
     - ^main$
     - ^main-
     cluster: build05
-    context: ci/prow/418-test-soak
+    context: ci/prow/419-test-soak
     decorate: true
     decoration_config:
       skip_cloning: true
@@ -2503,13 +2503,13 @@ presubmits:
     labels:
       ci-operator.openshift.io/cloud: aws
       ci-operator.openshift.io/cloud-cluster-profile: aws-serverless
-      ci-operator.openshift.io/variant: "418"
+      ci-operator.openshift.io/variant: "419"
       ci.openshift.io/generator: prowgen
-      job-release: "4.18"
+      job-release: "4.19"
       pj-rehearse.openshift.io/can-be-rehearsed: "true"
-    name: pull-ci-openshift-knative-serverless-operator-main-418-test-soak
+    name: pull-ci-openshift-knative-serverless-operator-main-419-test-soak
     optional: true
-    rerun_command: /test 418-test-soak
+    rerun_command: /test 419-test-soak
     run_if_changed: test/soak
     spec:
       containers:
@@ -2520,7 +2520,7 @@ presubmits:
         - --report-credentials-file=/etc/report/credentials
         - --secret-dir=/secrets/ci-pull-credentials
         - --target=test-soak
-        - --variant=418
+        - --variant=419
         command:
         - ci-operator
         image: ci-operator:latest
@@ -2568,14 +2568,14 @@ presubmits:
       - name: result-aggregator
         secret:
           secretName: result-aggregator
-    trigger: (?m)^/test( | .* )418-test-soak,?($|\s.*)
+    trigger: (?m)^/test( | .* )419-test-soak,?($|\s.*)
   - agent: kubernetes
     always_run: false
     branches:
     - ^main$
     - ^main-
     cluster: build05
-    context: ci/prow/418-test-upgrade
+    context: ci/prow/419-test-upgrade
     decorate: true
     decoration_config:
       skip_cloning: true
@@ -2583,12 +2583,12 @@ presubmits:
     labels:
       ci-operator.openshift.io/cloud: aws
       ci-operator.openshift.io/cloud-cluster-profile: aws-serverless
-      ci-operator.openshift.io/variant: "418"
+      ci-operator.openshift.io/variant: "419"
       ci.openshift.io/generator: prowgen
-      job-release: "4.18"
+      job-release: "4.19"
       pj-rehearse.openshift.io/can-be-rehearsed: "true"
-    name: pull-ci-openshift-knative-serverless-operator-main-418-test-upgrade
-    rerun_command: /test 418-test-upgrade
+    name: pull-ci-openshift-knative-serverless-operator-main-419-test-upgrade
+    rerun_command: /test 419-test-upgrade
     spec:
       containers:
       - args:
@@ -2598,7 +2598,7 @@ presubmits:
         - --report-credentials-file=/etc/report/credentials
         - --secret-dir=/secrets/ci-pull-credentials
         - --target=test-upgrade
-        - --variant=418
+        - --variant=419
         command:
         - ci-operator
         image: ci-operator:latest
@@ -2646,14 +2646,14 @@ presubmits:
       - name: result-aggregator
         secret:
           secretName: result-aggregator
-    trigger: (?m)^/test( | .* )418-test-upgrade,?($|\s.*)
+    trigger: (?m)^/test( | .* )419-test-upgrade,?($|\s.*)
   - agent: kubernetes
     always_run: false
     branches:
     - ^main$
     - ^main-
     cluster: build05
-    context: ci/prow/418-ui-e2e
+    context: ci/prow/419-ui-e2e
     decorate: true
     decoration_config:
       skip_cloning: true
@@ -2661,13 +2661,13 @@ presubmits:
     labels:
       ci-operator.openshift.io/cloud: aws
       ci-operator.openshift.io/cloud-cluster-profile: aws-serverless
-      ci-operator.openshift.io/variant: "418"
+      ci-operator.openshift.io/variant: "419"
       ci.openshift.io/generator: prowgen
-      job-release: "4.18"
+      job-release: "4.19"
       pj-rehearse.openshift.io/can-be-rehearsed: "true"
-    name: pull-ci-openshift-knative-serverless-operator-main-418-ui-e2e
+    name: pull-ci-openshift-knative-serverless-operator-main-419-ui-e2e
     optional: true
-    rerun_command: /test 418-ui-e2e
+    rerun_command: /test 419-ui-e2e
     run_if_changed: test/ui
     spec:
       containers:
@@ -2678,7 +2678,7 @@ presubmits:
         - --report-credentials-file=/etc/report/credentials
         - --secret-dir=/secrets/ci-pull-credentials
         - --target=ui-e2e
-        - --variant=418
+        - --variant=419
         command:
         - ci-operator
         image: ci-operator:latest
@@ -2726,14 +2726,14 @@ presubmits:
       - name: result-aggregator
         secret:
           secretName: result-aggregator
-    trigger: (?m)^/test( | .* )418-ui-e2e,?($|\s.*)
+    trigger: (?m)^/test( | .* )419-ui-e2e,?($|\s.*)
   - agent: kubernetes
     always_run: false
     branches:
     - ^main$
     - ^main-
     cluster: build05
-    context: ci/prow/418-upstream-e2e
+    context: ci/prow/419-upstream-e2e
     decorate: true
     decoration_config:
       skip_cloning: true
@@ -2741,13 +2741,13 @@ presubmits:
     labels:
       ci-operator.openshift.io/cloud: aws
       ci-operator.openshift.io/cloud-cluster-profile: aws-serverless
-      ci-operator.openshift.io/variant: "418"
+      ci-operator.openshift.io/variant: "419"
       ci.openshift.io/generator: prowgen
-      job-release: "4.18"
+      job-release: "4.19"
       pj-rehearse.openshift.io/can-be-rehearsed: "true"
-    name: pull-ci-openshift-knative-serverless-operator-main-418-upstream-e2e
+    name: pull-ci-openshift-knative-serverless-operator-main-419-upstream-e2e
     optional: true
-    rerun_command: /test 418-upstream-e2e
+    rerun_command: /test 419-upstream-e2e
     spec:
       containers:
       - args:
@@ -2757,7 +2757,7 @@ presubmits:
         - --report-credentials-file=/etc/report/credentials
         - --secret-dir=/secrets/ci-pull-credentials
         - --target=upstream-e2e
-        - --variant=418
+        - --variant=419
         command:
         - ci-operator
         image: ci-operator:latest
@@ -2805,14 +2805,14 @@ presubmits:
       - name: result-aggregator
         secret:
           secretName: result-aggregator
-    trigger: (?m)^/test( | .* )418-upstream-e2e,?($|\s.*)
+    trigger: (?m)^/test( | .* )419-upstream-e2e,?($|\s.*)
   - agent: kubernetes
     always_run: false
     branches:
     - ^main$
     - ^main-
     cluster: build05
-    context: ci/prow/418-upstream-e2e-kafka
+    context: ci/prow/419-upstream-e2e-kafka
     decorate: true
     decoration_config:
       skip_cloning: true
@@ -2820,13 +2820,13 @@ presubmits:
     labels:
       ci-operator.openshift.io/cloud: aws
       ci-operator.openshift.io/cloud-cluster-profile: aws-serverless
-      ci-operator.openshift.io/variant: "418"
+      ci-operator.openshift.io/variant: "419"
       ci.openshift.io/generator: prowgen
-      job-release: "4.18"
+      job-release: "4.19"
       pj-rehearse.openshift.io/can-be-rehearsed: "true"
-    name: pull-ci-openshift-knative-serverless-operator-main-418-upstream-e2e-kafka
+    name: pull-ci-openshift-knative-serverless-operator-main-419-upstream-e2e-kafka
     optional: true
-    rerun_command: /test 418-upstream-e2e-kafka
+    rerun_command: /test 419-upstream-e2e-kafka
     spec:
       containers:
       - args:
@@ -2836,7 +2836,7 @@ presubmits:
         - --report-credentials-file=/etc/report/credentials
         - --secret-dir=/secrets/ci-pull-credentials
         - --target=upstream-e2e-kafka
-        - --variant=418
+        - --variant=419
         command:
         - ci-operator
         image: ci-operator:latest
@@ -2884,7 +2884,7 @@ presubmits:
       - name: result-aggregator
         secret:
           secretName: result-aggregator
-    trigger: (?m)^/test( | .* )418-upstream-e2e-kafka,?($|\s.*)
+    trigger: (?m)^/test( | .* )419-upstream-e2e-kafka,?($|\s.*)
   - agent: kubernetes
     always_run: false
     branches:
@@ -2949,17 +2949,17 @@ presubmits:
     - ^main$
     - ^main-
     cluster: build01
-    context: ci/prow/ocp4.18-lp-interop-images
+    context: ci/prow/ocp4.19-lp-interop-images
     decorate: true
     decoration_config:
       skip_cloning: true
     labels:
-      ci-operator.openshift.io/variant: ocp4.18-lp-interop
+      ci-operator.openshift.io/variant: ocp4.19-lp-interop
       ci.openshift.io/generator: prowgen
-      job-release: "4.18"
+      job-release: "4.19"
       pj-rehearse.openshift.io/can-be-rehearsed: "true"
-    name: pull-ci-openshift-knative-serverless-operator-main-ocp4.18-lp-interop-images
-    rerun_command: /test ocp4.18-lp-interop-images
+    name: pull-ci-openshift-knative-serverless-operator-main-ocp4.19-lp-interop-images
+    rerun_command: /test ocp4.19-lp-interop-images
     skip_if_only_changed: ^.tekton/.*|^.konflux.*|^.github/.*|^rpms.lock.yaml$|^hack/.*|^OWNERS.*|.*\.md
     spec:
       containers:
@@ -2968,7 +2968,7 @@ presubmits:
         - --image-import-pull-secret=/etc/pull-secret/.dockerconfigjson
         - --report-credentials-file=/etc/report/credentials
         - --target=[images]
-        - --variant=ocp4.18-lp-interop
+        - --variant=ocp4.19-lp-interop
         command:
         - ci-operator
         image: ci-operator:latest
@@ -3001,4 +3001,4 @@ presubmits:
       - name: result-aggregator
         secret:
           secretName: result-aggregator
-    trigger: (?m)^/test( | .* )ocp4.18-lp-interop-images,?($|\s.*)
+    trigger: (?m)^/test( | .* )ocp4.19-lp-interop-images,?($|\s.*)
