@@ -22,10 +22,7 @@ To execute OpenShift Virtualization network tests on a bare-metal cluster config
 
 The script performs the following to run Openshift Virtualization `localnet` network tests on Goldman Sachs bare-metal cluster:
 
-
-1. Import KUBECONFIG to `${SHARED_DIR}/kubeconfig`.
-2. Run `tests/network/localnet/test_default_bridge.py` with specificed environment variables.
-3. Move xmls to `${ARTIFACT_DIR}/junit_*.xml`.
+  - Run `tests/network/localnet/test_default_bridge.py` with specificed environment variables.
 
 
 ### Cluster Setup: `external-cluster`
@@ -40,24 +37,7 @@ OCP Test Cluster on Bare Metal with Goldman Sachs HW configuration.
 
 ### Environment Variables
 
-  - `BW_PATH`
-    - **Definition:** Bitwarden directory
-    - **If left empty:** default: `"/bw"`
-  - `BREW_IMAGE_REGISTRY_USERNAME`
-      - **Definition:**
-      - **If left empty:** default: `/var/run/cnv-ci-brew-pull-secret/token`
-  -  `BREW_IMAGE_REGISTRY_TOKEN_PATH`
-      - **Definition:**
-      - **If left empty:** default: `/var/run/cnv-ci-brew-pull-secret/token`
-  - `KUBEVIRT_RELEASE`
-      - **Definition:**
-      - **If left empty:** default: `v0.59.0-alpha.0`
-  - `ARTIFACT_DIR`
-    - **Definition:**
-    - **If left empty:** default: `/tmp/artifacts`
-  - `TARGET_NAMESPACE`
-      - **Definition:**
-      - **If left empty:** default: `openshift-cnv`
+Refer to variables defined in [gs-baremetal-localnet-test-ref.yaml](./gs-baremetal-localnet-test-ref.yaml).
 
 ### Custom Images
  - [Dockerfile](https://github.com/RedHatQE/openshift-virtualization-tests/blob/main/Dockerfile)

@@ -32,7 +32,7 @@ tests:
     workflow: external-cluster
   timeout: 4h0m0s
 zz_generated_metadata:
-  branch: main
+  branch: master
   org: RedHatQE
-  repo: openshift-virtualization-tests
+  repo: interop-testing
   variant: gs-baremetal-localnet-ocp4.19-lp-gs

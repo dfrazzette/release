@@ -896,7 +896,6 @@
     - org: RedHatQE
       repos:
         - interop-testing
-        - openshift-virtualization-tests
     - org: redhat-chaos
       repos:
         - lp-chaos
