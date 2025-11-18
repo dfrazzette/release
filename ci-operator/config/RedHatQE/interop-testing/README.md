@@ -50,7 +50,7 @@ Tests the interoperability between Containerized Data Virtualization (CNV) and O
 
 ### Goldman Sachs Configured Bare-Metal Cluster OpenShift Virtualization Tests 
 
-Refer to [`gs-baremetal-localnet-test`](../../../step-registry/gs-baremetal/localnet-test/gs-baremetal-localnet-test-ref.yaml) and [`README`](../../../step-registry/gs-baremetal/localnet-test/README.md)] to execute OpenShift Virtualization Networking tests on bare-metal cluster configured for Goldman Sachs
+Refer to [`gs-baremetal-localnet-test`](../../../step-registry/gs-baremetal/localnet-test/gs-baremetal-localnet-test-ref.yaml) and [`README`](../../../step-registry/gs-baremetal/localnet-test/README.md) to execute OpenShift Virtualization Networking tests on bare-metal cluster configured for Goldman Sachs
 
 
 ## Process
