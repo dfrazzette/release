@@ -22,7 +22,7 @@ To execute OpenShift Virtualization network tests on a bare-metal cluster config
 
 The script performs the following to run Openshift Virtualization `localnet` network tests on Goldman Sachs bare-metal cluster:
 
-  - Run `tests/network/localnet/test_default_bridge.py` with specificed environment variables.
+  - Run `tests/network/localnet/test_default_bridge.py` with specified environment variables.
 
 
 ### Cluster Setup: `external-cluster`

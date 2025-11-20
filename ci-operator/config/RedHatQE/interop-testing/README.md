@@ -33,7 +33,7 @@ To provision the necessary infrastructure and execute OpenShift Virtualization i
 
 ### CNV+ODF Interop Tests
 
-Tests the interoperability between Containerized Data Virtualization (CNV) and OpenShift Data Foundation (ODF) operators.
+Tests the interoperability between OpenShift Virtualization (CNV) and OpenShift Data Foundation (ODF) operators.
 
 **Supported Versions:**
 - OCP 4.18+
@@ -65,12 +65,11 @@ Please see the [`firewatch-ipi-aws`](https://steps.ci.openshift.org/workflow/fir
 
 Following cluster provisioning, the following steps are executed in order:
 
-1. [`deploy-odf`](../../../step-registry/interop-tests/deploy-odf/interop-tests-deploy-odf-ref.yaml) - Deploy ODF operator and storage system
-2. [`ocs-tests`](../../../step-registry/interop-tests/ocs-tests/interop-tests-ocs-tests-ref.yaml) - Execute ODF storage tests
-3. [`deploy-cnv`](../../../step-registry/interop-tests/deploy-cnv/interop-tests-deploy-cnv-ref.yaml) - Deploy CNV operator
-4. [`cnv-tests-e2e-deploy`](../../../step-registry/interop-tests/cnv-tests-e2e-deploy/interop-tests-cnv-tests-e2e-deploy-ref.yaml) - Execute CNV e2e tests
-5. [`openshift-virtualization-tests`](../../../step-registry/interop-tests/openshift-virtualization-tests/interop-tests-openshift-virtualization-tests-ref.yaml) - Execute OpenShift Virtualization tests
-
+1. [`deploy-odf`](../../../step-registry/interop-tests/deploy-odf/README.md) ([ref](../../../step-registry/interop-tests/deploy-odf/interop-tests-deploy-odf-ref.yaml)) - Deploy ODF operator and storage system
+2. [`ocs-tests`](../../../step-registry/interop-tests/ocs-tests/README.md) ([ref](../../../step-registry/interop-tests/ocs-tests/interop-tests-ocs-tests-ref.yaml)) - Execute ODF storage tests
+3. [`deploy-cnv`](../../../step-registry/interop-tests/deploy-cnv/README.md) ([ref](../../../step-registry/interop-tests/deploy-cnv/interop-tests-deploy-cnv-ref.yaml)) - Deploy CNV operator
+4. [`cnv-tests-e2e-deploy`](../../../step-registry/interop-tests/cnv-tests-e2e-deploy/README.md) ([ref](../../../step-registry/interop-tests/cnv-tests-e2e-deploy/interop-tests-cnv-tests-e2e-deploy-ref.yaml)) - Execute CNV e2e tests
+5. [`openshift-virtualization-tests`](../../../step-registry/interop-tests/openshift-virtualization-tests/README.md) ([ref](../../../step-registry/interop-tests/openshift-virtualization-tests/interop-tests-openshift-virtualization-tests-ref.yaml)) - Execute OpenShift Virtualization tests
 ## Prerequisites
 
 ### Environment Variables
@@ -98,13 +97,19 @@ Following cluster provisioning, the following steps are executed in order:
 - `RE_TRIGGER_ON_FAILURE` - Whether to retrigger on failure ("true"/"false")
 
 ## Test Configurations
-
+   ### GS Bare-Metal Configurations
+   
+- **OCP 4.19**: `RedHatQE-interop-testing-master__gs-baremetal-localnet-ocp4.19-lp-gs.yaml`
+    - Runs on existing Goldman Sachs bare-metal cluster
+    - Uses `external-cluster` workflow
+    - Tests OpenShift Virtualization localnet networking with single NIC configuration
 ### CNV+ODF Configurations
 
 - **OCP 4.18**: `RedHatQE-interop-testing-cnv-4.18__cnv-odf-ocp4.18-lp-interop.yaml`
-  - Standard and FIPS variants
-  - Monthly execution schedule
+    - Standard and FIPS variants
+    - Monthly execution schedule
 - **OCP 4.19**: `RedHatQE-interop-testing-master__cnv-odf-ocp4.19-lp-interop.yaml`
-- **OCP 4.20**: `RedHatQE-interop-testing-master__cnv-odf-ocp-4.20-lp-interop.yaml`
-- **OCP 4.21**:
-`RedHatQE-interop-testing-master__cnv-odf-ocp-4.21-lp-interop-cr.yaml`
+- **OCP 4.20**: 
+    - `RedHatQE-interop-testing-master__cnv-odf-ocp-4.20-lp-interop.yaml`
+    - `RedHatQE-interop-testing-master__cnv-odf-ocp-4.20-lp-interop-cr.yaml` (Component Readiness)
+- **OCP 4.21**: `RedHatQE-interop-testing-master__cnv-odf-ocp-4.21-lp-interop-cr.yaml` (Component Readiness)
