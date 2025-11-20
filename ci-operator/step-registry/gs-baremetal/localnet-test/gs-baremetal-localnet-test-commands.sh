@@ -251,7 +251,6 @@ uv run --verbose --cache-dir /tmp/uv-cache pytest \
     --storage-class-matrix="${DEFAULT_STORAGE_CLASS}" \
     --leftovers-collector \
     tests/network/localnet/test_default_bridge.py || rc=$?
-    ```
 
 # Send junit file to shared dir for Data Router Reporter step
 cp "${JUNIT_RESULTS_FILE}" "${SHARED_DIR}"
