@@ -244,22 +244,14 @@ uv run --verbose --cache-dir /tmp/uv-cache pytest \
     --junitxml "${JUNIT_RESULTS_FILE}" \
     --html="${HTML_RESULTS_FILE}" --self-contained-html \
     --tb=native \
-    --tc default_storage_class:ocs-storagecluster-ceph-rbd-virtualization \
+    --tc "default_storage_class:${DEFAULT_STORAGE_CLASS}" \
     --tc default_volume_mode:Block \
     --tc "hco_subscription:${HCO_SUBSCRIPTION}" \
     --latest-rhel \
-    --storage-class-matrix=ocs-storagecluster-ceph-rbd-virtualization \
+    --storage-class-matrix="${DEFAULT_STORAGE_CLASS}" \
     --leftovers-collector \
     tests/network/localnet/test_default_bridge.py || rc=$?
-
-# TODO: Fix junit, spyglass still show "nil" for failed jobs.
-#       (This attempt didn't work)
-# if [[ -f "${JUNIT_RESULTS_FILE}" ]]; then
-#     cp -v "${JUNIT_RESULTS_FILE}" "${JUNIT_RESULTS_FILE}.original"
-#     xmllint --format "${JUNIT_RESULTS_FILE}.original" \
-#         | sed --regexp-extended 's#</?testsuites([^>]+)?>##g' \
-#         | xmllint --format - > "${JUNIT_RESULTS_FILE}"
-# fi
+    ```
 
 # Send junit file to shared dir for Data Router Reporter step
 cp "${JUNIT_RESULTS_FILE}" "${SHARED_DIR}"
