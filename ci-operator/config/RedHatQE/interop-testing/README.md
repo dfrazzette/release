@@ -13,10 +13,9 @@
 - [Prerequisites](#prerequisites)
   - [Environment Variables](#environment-variables)
     - [Common Variables](#common-variables)
-    - [CNV+ODF Specific Variables](#cnvodf-specific-variables)
-    - [Firewatch Configuration Variables](#firewatch-configuration-variables)
-- [Test Configurations](#test-configurations)
-  - [CNV+ODF Configurations](#cnvodf-configurations)
+- [IBM Fusion Access Operator Interop Tests](#ibm-fusion-access-operator-interop-tests)
+  - [Test Configurations](#test-configurations)
+  - [Test Chains](#test-chains)
 
 ## General Information
 
@@ -81,30 +80,20 @@ Following cluster provisioning, the following steps are executed in order:
   - **Definition**: A fully-qualified domain or subdomain name. The base domain of the cloud provider is used for setting baseDomain variable of the install configuration of the cluster.
   - **If left empty**: The [`firewatch-ipi-aws` workflow](../../../step-registry/ipi/aws/firewatch-ipi-aws-workflow.yaml) will fail.
 
-#### CNV+ODF Specific Variables
+## IBM Fusion Access Operator Interop Tests
 
-- `OCP_VERSION` - OpenShift version (e.g., "4.18", "4.19", "4.20")
-- `ODF_OPERATOR_CHANNEL` - ODF operator channel (e.g., "stable-4.18")
-- `ODF_VERSION_MAJOR_MINOR` - ODF version (e.g., "4.18")
-- `FIPS_ENABLED` - Enable FIPS mode ("true"/"false")
+The IBM Fusion Access Operator tests verify the integration of the Fusion Access Operator with OpenShift, including IBM Storage Scale deployment and AWS EBS filesystem integration.
 
-#### Firewatch Configuration Variables
+### Test Configurations
 
-- `FIREWATCH_CONFIG_FILE_PATH` - Path to Firewatch configuration file
-- `FIREWATCH_DEFAULT_JIRA_ADDITIONAL_LABELS` - Additional JIRA labels for test failures
-- `FIREWATCH_DEFAULT_JIRA_ASSIGNEE` - JIRA assignee for test failures
-- `FIREWATCH_DEFAULT_JIRA_PROJECT` - JIRA project for test failures
-- `FIREWATCH_FAIL_WITH_TEST_FAILURES` - Whether to fail on test failures ("true"/"false")
-- `RE_TRIGGER_ON_FAILURE` - Whether to retrigger on failure ("true"/"false")
+- **fusion-access-operator-ocp4.20-lp-interop**: Tests Fusion Access Operator with IBM Storage Scale on OpenShift 4.20
+- **fusion-access-cnv-ocp4.20-lp-interop**: Tests Fusion Access Operator with CNV (OpenShift Virtualization) integration on OpenShift 4.20
 
-## Test Configurations
+### Test Chains
 
-### CNV+ODF Configurations
+The tests use modular chains for different testing scenarios:
 
-- **OCP 4.18**: `RedHatQE-interop-testing-cnv-4.18__cnv-odf-ocp4.18-lp-interop.yaml`
-  - Standard and FIPS variants
-  - Monthly execution schedule
-- **OCP 4.19**: `RedHatQE-interop-testing-master__cnv-odf-ocp4.19-lp-interop.yaml`
-- **OCP 4.20**: `RedHatQE-interop-testing-master__cnv-odf-ocp-4.20-lp-interop.yaml`
-- **OCP 4.21**:
-`RedHatQE-interop-testing-master__cnv-odf-ocp-4.21-lp-interop-cr.yaml`
+1. **Environment Setup Chain** ([`interop-tests-ibm-fusion-access-environment-setup-chain`](../../../step-registry/interop-tests/ibm-fusion-access/environment-setup-chain/)) - Sets up namespaces, operators, and IBM Storage Scale cluster
+2. **EBS Integration Chain** ([`interop-tests-ibm-fusion-access-ebs-integration-chain`](../../../step-registry/interop-tests/ibm-fusion-access/ebs-integration-chain/)) - Creates and tests EBS-backed IBM Storage Scale filesystems
+
+For detailed documentation on individual steps and configuration options, see the [ibm-fusion-access step registry](../../../step-registry/ibm-fusion-access/).
