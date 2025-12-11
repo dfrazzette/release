@@ -205,15 +205,8 @@ ORGANIZATION_ID=$(head -1 "${BW_PATH}"/bitwarden-org-id)
 set -x
 export ORGANIZATION_ID ACCESS_TOKEN ARTIFACTORY_USER ARTIFACTORY_TOKEN ARTIFACTORY_SERVER
 
-# Unset the following environment variables to avoid issues with oc command
-unset KUBERNETES_SERVICE_PORT_HTTPS
-unset KUBERNETES_SERVICE_PORT
-unset KUBERNETES_PORT_443_TCP
-unset KUBERNETES_PORT_443_TCP_PROTO
-unset KUBERNETES_PORT_443_TCP_ADDR
-unset KUBERNETES_SERVICE_HOST
-unset KUBERNETES_PORT
-unset KUBERNETES_PORT_443_TCP_PORT
+# Unset KUBERNETES environment variables to avoid issues with oc command
+unset -v "${!KUBERNETES_@}"
 
 ###########################################################################
 # Get oc binary
