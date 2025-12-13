@@ -1,9 +1,5 @@
 #!/bin/bash
-
-set -o nounset
-set -o errexit
-set -o pipefail
-shopt -s extglob
+set -euxo pipefail; shopt -s inherit_errexit extglob
 
 start_time=$SECONDS
 
